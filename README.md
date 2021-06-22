@@ -41,7 +41,7 @@ it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemava
             - **`png_1024`**: Link to Owner logo [PNG format, 1024x1024].
             - **`svg`**: Link to Owner logo [SVG format].
     - **`location`** *(object)*: The location of the Owner of the Account.
-        - **`name`** *(string)*: Free-form location in human readable format [for example: City, State]
+        - **`name`** *(string)*: Free-form location in human-readable format [for example: City, State]
         - **`country`** *(string)*: ISO 3166-1 alpha 2 country code [XX]
         - **`latitude`** *(number)*: Latitude in decimal degrees
         - **`longitude`** *(number)*: Longitude in decimal degrees
@@ -60,7 +60,7 @@ it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemava
         - **`public_key`** *(string)*: Casper Public Key (hexadecimal representation)
         - **`description`** *(string)*: A description of the use and functionality of this node.
         - **`location`** *object*: The location of this node.
-          - **`name`** *(string)*: Free-form location in human readable format [for example: City, State]
+          - **`name`** *(string)*: Free-form location in human-readable format [for example: City, State]
           - **`country`** *(string)*: ISO 3166-1 alpha 2 country code [XX]
           - **`latitude`** *(number)*: Latitude in decimal degrees
           - **`longitude`** *(number)*: Longitude in decimal degrees         
@@ -73,8 +73,8 @@ it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemava
 
 The Account Owner will cryptographically sign a deploy of a smart contract on the Casper Network, specifying that a specific domain name 
 (e.g. https://example.com) is theirs. They will then place a JSON file in a specific location on that domain.
-Once done, Block Explorers, dApps and other clients on the Network can simply query the smart contract for the domain name 
-by passing the Account's public key. This will allow them to retrieve the metadata file, and display the detailed 
+Once done, Block Explorers, dApps, and other clients on the Network can simply query the smart contract for the domain name 
+by passing the Account's public key. This will allow them to retrieve the metadata file and display the detailed 
 information that the Account Owner provided.
 Examples to perform these queries will be provided in a separate repository.
 
