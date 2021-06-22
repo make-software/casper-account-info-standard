@@ -1,26 +1,30 @@
 {
-    "owner_name": "",
-    "owner_description": "",
-    "owner_type": [],
     "owner": {
+        "name": "",
+        "description": "",
+        "type": [],
         "identity": {
-            "ownership_disclosure": "",
-            "casper_association_kyc_web": "",
+            "ownership_disclosure_url": "",
+            "casper_association_kyc_url": "",
             "casper_association_kyc_onchain": ""
         },
         "resources": {
-            "code_of_conduct": "",
-            "terms_of_service": "",
-            "privacy_policy": "",
+            "code_of_conduct_url": "",
+            "terms_of_service_url": "",
+            "privacy_policy_url": "",
             "other": []
         },
-        "associated_accounts": [],
+        "associated_accounts": [
+            {"public_key": ""}
+        ],
         "website": "",
         "email": "",
         "branding": {
-            "logo_256": "",
-            "logo_1024": "",
-            "logo_svg": ""
+            "logo": {
+                "png_256": "",
+                "png_1024": "",
+                "svg": ""
+            }
         },
         "location": {
             "name": "",
@@ -42,15 +46,15 @@
     },
     "nodes": [
         {
-            "node_account_address": "",
-            "node_description": "",
+            "public_key": "",
+            "description": "",
             "location": {
                 "name": "",
                 "country": "",
                 "latitude": 0,
                 "longitude": 0
             },
-            "features": []
+            "functionality": []
         }
     ]
 }

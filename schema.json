@@ -12,7 +12,7 @@
             ],
             "properties": {
                 "name": {
-                    "description": "Location in human readable format [City, State]",
+                    "description": "Free-form location in human readable format [for example: City, State]",
                     "type": "string",
                     "minLength": 3
                 },
@@ -60,73 +60,82 @@
             "type": "string",
             "pattern": "^[\\w\\d_\\-./]*$"
         },
-        "casper_public_key": {
+        "casper_public_key" : {
             "type": "string",
             "maxLength": 68,
             "minLength": 66,
             "pattern": "^[a-fA-F0-9]{66,68}$"
+        },
+        "casper_account": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties" : {
+                "public_key": {
+                    "$ref": "#/$defs/casper_public_key"
+                }
+            }
         }
     },
     "required": [
-        "owner",
-        "owner_name",
-        "owner_type"
+        "owner"
     ],
     "additionalProperties": false,
     "properties": {
-        "owner_name": {
-            "$id": "#/properties/owner_name",
-            "type": "string",
-            "description": "The name of the entity or person that owns the Account",
-            "maxLength": 32,
-            "minLength": 3
-        },
-        "owner_description": {
-            "$id": "#/properties/owner_description",
-            "type": "string",
-            "description": "An optional description of the Owner of the Account",
-            "maxLength": 200
-        },
-        "owner_type": {
-            "$id": "#/properties/owner_type",
-            "type": "array",
-            "description": "Indicates the type of entity of the owner. One Owner can have multiple types.",
-            "uniqueItems": true,
-            "minItems": 1,
-            "items": {
-                "$id": "#/properties/owner_type/items",
-                "type": "string",
-                "enum": [
-                    "validator",
-                    "exchange",
-                    "dapp",
-                    "individual",
-                    "corporation",
-                    "dao"
-                ]
-            }
-        },
         "owner": {
             "$id": "#/properties/owner",
             "type": "object",
             "description": "More detailed information about the Owner of the Account",
             "required": [
-                "identity"
+                "identity",
+                "name",
+                "type"
             ],
             "properties": {
+                "name": {
+                    "$id": "#/properties/owner/name",
+                    "type": "string",
+                    "description": "The name of the entity or person that owns the Account",
+                    "maxLength": 32,
+                    "minLength": 3
+                },
+                "description": {
+                    "$id": "#/properties/owner/description",
+                    "type": "string",
+                    "description": "An optional description of the Owner of the Account",
+                    "maxLength": 200
+                },
+                "type": {
+                    "$id": "#/properties/owner/type",
+                    "type": "array",
+                    "description": "Indicates the type of entity of the owner. One Owner can have multiple types.",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                        "$id": "#/properties/owner/type/items",
+                        "type": "string",
+                        "enum": [
+                            "validator",
+                            "exchange",
+                            "dapp",
+                            "individual",
+                            "corporation",
+                            "dao"
+                        ]
+                    }
+                },
                 "identity": {
                     "$id": "#/properties/owner/properties/identity",
                     "type": "object",
                     "description": "Information about the ownership of the Account.",
                     "required": [],
                     "properties": {
-                        "ownership_disclosure": {
-                            "$id": "#/properties/owner/properties/identity/properties/ownership_disclosure",
+                        "ownership_disclosure_url": {
+                            "$id": "#/properties/owner/properties/identity/properties/ownership_disclosure_url",
                             "$ref": "#/$defs/optional_url",
                             "description": "Link to a page outlining entity ownership and/or governance"
                         },
-                        "casper_association_kyc_web": {
-                            "$id": "#/properties/owner/properties/identity/properties/casper_association_kyc_web",
+                        "casper_association_kyc_url": {
+                            "$id": "#/properties/owner/properties/identity/properties/casper_association_kyc_url",
                             "$ref": "#/$defs/optional_url",
                             "description": "Reserved for a link to a Casper Association provided verified identity document, as applicable to Validator members of the Association"
                         },
@@ -144,18 +153,18 @@
                     "description": "Additional online resources provided by the Account owner",
                     "required": [],
                     "properties": {
-                        "code_of_conduct": {
-                            "$id": "#/properties/owner/properties/resources/properties/code_of_conduct",
+                        "code_of_conduct_url": {
+                            "$id": "#/properties/owner/properties/resources/properties/code_of_conduct_url",
                             "$ref": "#/$defs/optional_url",
                             "description": "A link to a Code of Conduct document"
                         },
-                        "terms_of_service": {
-                            "$id": "#/properties/owner/properties/resources/properties/terms_of_service",
+                        "terms_of_service_url": {
+                            "$id": "#/properties/owner/properties/resources/properties/terms_of_service_url",
                             "$ref": "#/$defs/optional_url",
                             "description": "A link to the Terms of Service applicable to the use of Owner's services, such as network validation and staking"
                         },
-                        "privacy_policy": {
-                            "$id": "#/properties/owner/properties/resources/properties/privacy_policy",
+                        "privacy_policy_url": {
+                            "$id": "#/properties/owner/properties/resources/properties/privacy_policy_url",
                             "$ref": "#/$defs/optional_url",
                             "description": "A link to a Privacy Policy, as may be applicable to personal information provided to the Account Owner"
                         },
@@ -176,10 +185,9 @@
                     "$id": "#/properties/owner/properties/associated_accounts",
                     "type": "array",
                     "description": "A list of additional accounts owned by the same owner. Declaring additional accounts provides transparency with respect to Exchange-owned wallets, or self-staked funds belonging to Validators. In order for an associated account o be considered valid, it needs to register the same base URL with the Casper Account Info Standard contract as the Owner",
-                    "additionalItems": false,
                     "items": {
                         "$id": "#/properties/owner/properties/associated_accounts/items",
-                        "$ref": "#/$defs/casper_public_key"
+                        "$ref": "#/$defs/casper_account"
                     }
                 },
                 "website": {
@@ -196,25 +204,36 @@
                 "branding": {
                     "$id": "#/properties/owner/properties/branding",
                     "type": "object",
-                    "description": "Graphical assets to visually identify the Owner",
+                    "description": "Owner Branding",
                     "required": [
-                        "logo_256"
+                        "logo"
                     ],
                     "properties": {
-                        "logo_256": {
-                            "$id": "#/properties/owner/properties/branding/properties/logo_256",
-                            "$ref": "#/$defs/required_url",
-                            "description": "Link to Owner logo [PNG format, 256x256]"
-                        },
-                        "logo_1024": {
-                            "$id": "#/properties/owner/properties/branding/properties/logo_1024",
-                            "$ref": "#/$defs/optional_url",
-                            "description": "Link to Owner logo [PNG format, 1024x1024]"
-                        },
-                        "logo_svg": {
-                            "$id": "#/properties/owner/properties/branding/properties/logo_svg",
-                            "$ref": "#/$defs/optional_url",
-                            "description": "Link to Owner logo [SVG format]"
+                        "logo": {
+                            "$id": "#/properties/owner/properties/branding/properties/logo",
+                            "type": "object",
+                            "description": "Graphical assets to visually identify the Owner",
+                            "additionalProperties": false,
+                            "required": [
+                                "png_256"
+                            ],
+                            "properties": {
+                                "png_256": {
+                                    "$id": "#/properties/owner/properties/branding/properties/logo/png_256",
+                                    "$ref": "#/$defs/required_url",
+                                    "description": "Link to Owner logo [PNG format, 256x256]"
+                                },
+                                "png_1024": {
+                                    "$id": "#/properties/owner/properties/branding/properties/logo/png_1024",
+                                    "$ref": "#/$defs/optional_url",
+                                    "description": "Link to Owner logo [PNG format, 1024x1024]"
+                                },
+                                "svg": {
+                                    "$id": "#/properties/owner/properties/branding/properties/logo/svg",
+                                    "$ref": "#/$defs/optional_url",
+                                    "description": "Link to Owner logo [SVG format]"
+                                }
+                            }
                         }
                     },
                     "additionalProperties": false
@@ -233,47 +252,47 @@
                         "keybase": {
                             "$id": "#/properties/owner/properties/social/properties/keybase",
                             "$ref": "#/$defs/username",
-                            "description": "username only"
+                            "description": "username only, e.g. 'john'"
                         },
                         "telegram": {
                             "$id": "#/properties/owner/properties/social/properties/telegram",
                             "$ref": "#/$defs/username",
-                            "description": "username only"
+                            "description": "username only, e.g. '@john'"
                         },
                         "twitter": {
                             "$id": "#/properties/owner/properties/social/properties/twitter",
                             "$ref": "#/$defs/username",
-                            "description": "username only"
+                            "description": "username only, e.g. '@john'"
                         },
                         "github": {
                             "$id": "#/properties/owner/properties/social/properties/github",
                             "$ref": "#/$defs/username",
-                            "description": "username only"
+                            "description": "username only, e.g. 'john'"
                         },
                         "youtube": {
                             "$id": "#/properties/owner/properties/social/properties/youtube",
                             "$ref": "#/$defs/youtube_username",
-                            "description": "channel address only"
+                            "description": "channel address only, e.g. 'john'"
                         },
                         "facebook": {
                             "$id": "#/properties/owner/properties/social/properties/facebook",
                             "$ref": "#/$defs/facebook_username",
-                            "description": "Facebook Page or Facebook Group address only, not the full URL"
+                            "description": "Facebook Page or Facebook Group address only, not the full URL, e.g. 'john'"
                         },
                         "medium": {
                             "$id": "#/properties/owner/properties/social/properties/medium",
                             "$ref": "#/$defs/username",
-                            "description": "username only"
+                            "description": "username only, e.g. '@john'"
                         },
                         "reddit": {
                             "$id": "#/properties/owner/properties/social/properties/reddit",
                             "$ref": "#/$defs/username",
-                            "description": "username only"
+                            "description": "username only, e.g. 'r/john' or 'u/john'"
                         },
                         "wechat": {
                             "$id": "#/properties/owner/properties/social/properties/wechat",
                             "$ref": "#/$defs/username",
-                            "description": "username only"
+                            "description": "WeChat ID only, e.g. 'john'"
                         }
                     },
                     "additionalProperties": false
@@ -285,19 +304,19 @@
             "$id": "#/properties/nodes",
             "type": "array",
             "description": "List of nodes operated by the Account Owner",
-            "additionalItems": false,
             "items": {
                 "$id": "#/properties/nodes/items",
                 "type": "object",
                 "required": [
-                    "node_account_address"
+                    "public_key"
                 ],
+                "additionalProperties": false,
                 "properties": {
-                    "node_account_address": {
-                        "$id": "#/properties/nodes/items/properties/node_description",
+                    "public_key": {
+                        "$id": "#/properties/nodes/items/properties/public_key",
                         "$ref": "#/$defs/casper_public_key"
                     },
-                    "node_description": {
+                    "description": {
                         "$id": "#/properties/nodes/items/properties/node_description",
                         "type": "string",
                         "description": "A description of the use and functionality of this node"
@@ -307,15 +326,14 @@
                         "$ref": "#/$defs/location",
                         "description": "The location of this node."
                     },
-                    "features": {
-                        "$id": "#/properties/nodes/items/properties/features",
+                    "functionality": {
+                        "$id": "#/properties/nodes/items/properties/functionality",
                         "type": "array",
-                        "description": "Reserved to describe the features provided by this node",
-                        "additionalItems": false,
+                        "description": "Reserved to describe the functionality provided by this node",
                         "uniqueItems": true,
                         "minItems": 1,
                         "items": {
-                            "$id": "#/properties/nodes/items/properties/features/items",
+                            "$id": "#/properties/nodes/items/properties/functionality/items",
                             "type": "string",
                             "enum": [
                                 "validator",
