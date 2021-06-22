@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema",
-    "title": "Casper Account Information Standard",
+    "title": "Casper Account Info Standard",
     "description": "Information about an Account on the Casper Network",
     "type": "object",
     "$defs": {
