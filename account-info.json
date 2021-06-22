@@ -1,0 +1,56 @@
+{
+    "owner_name": "",
+    "owner_description": "",
+    "owner_type": [],
+    "owner": {
+        "identity": {
+            "ownership_disclosure": "",
+            "casper_association_kyc_web": "",
+            "casper_association_kyc_onchain": ""
+        },
+        "resources": {
+            "code_of_conduct": "",
+            "terms_of_service": "",
+            "privacy_policy": "",
+            "other": []
+        },
+        "associated_accounts": [],
+        "website": "",
+        "email": "",
+        "branding": {
+            "logo_256": "",
+            "logo_1024": "",
+            "logo_svg": ""
+        },
+        "location": {
+            "name": "",
+            "country": "",
+            "latitude": 0,
+            "longitude": 0
+        },
+        "social": {
+            "keybase": "",
+            "telegram": "",
+            "twitter": "",
+            "github": "",
+            "youtube": "",
+            "facebook": "",
+            "medium": "",
+            "reddit": "",
+            "wechat": ""
+        }
+    },
+    "nodes": [
+        {
+            "node_account_address": "",
+            "node_description": "",
+            "location": {
+                "name": "",
+                "country": "",
+                "latitude": 0,
+                "longitude": 0
+            },
+            "features": []
+        }
+    ]
+}
