@@ -50,15 +50,23 @@
         },
         "username": {
             "type": "string",
-            "pattern": "^[\\w\\d_\\-.]*$"
+            "pattern": "^[\\w.-]*$"
+        },
+        "username_with_prefix": {
+            "type": "string",
+            "pattern": "^(@[\\w.-]*)?$"
         },
         "facebook_username": {
             "type": "string",
-            "pattern": "^[\\w\\d_\\-./]*$"
+            "pattern": "^[\\w.-/]*$"
         },
         "youtube_username": {
             "type": "string",
-            "pattern": "^[\\w\\d_\\-./]*$"
+            "pattern": "^[\\w.-/]*$"
+        },
+        "reddit_username": {
+            "type": "string",
+            "pattern": "^[\\w.-/]*$"
         },
         "casper_public_key" : {
             "type": "string",
@@ -256,12 +264,12 @@
                         },
                         "telegram": {
                             "$id": "#/properties/owner/properties/social/properties/telegram",
-                            "$ref": "#/$defs/username",
+                            "$ref": "#/$defs/username_with_prefix",
                             "description": "username only, e.g. '@john'"
                         },
                         "twitter": {
                             "$id": "#/properties/owner/properties/social/properties/twitter",
-                            "$ref": "#/$defs/username",
+                            "$ref": "#/$defs/username_with_prefix",
                             "description": "username only, e.g. '@john'"
                         },
                         "github": {
@@ -272,21 +280,21 @@
                         "youtube": {
                             "$id": "#/properties/owner/properties/social/properties/youtube",
                             "$ref": "#/$defs/youtube_username",
-                            "description": "channel address only, e.g. 'john'"
+                            "description": "channel address only, e.g. 'c/John' or 'channel/XXXXXXXXXXXXXXX'"
                         },
                         "facebook": {
                             "$id": "#/properties/owner/properties/social/properties/facebook",
                             "$ref": "#/$defs/facebook_username",
-                            "description": "Facebook Page or Facebook Group address only, not the full URL, e.g. 'john'"
+                            "description": "Facebook Page or Facebook Group address only, not the full URL, e.g. 'John' or 'groups/XXXXXXXXXXXXXX'"
                         },
                         "medium": {
                             "$id": "#/properties/owner/properties/social/properties/medium",
-                            "$ref": "#/$defs/username",
+                            "$ref": "#/$defs/username_with_prefix",
                             "description": "username only, e.g. '@john'"
                         },
                         "reddit": {
                             "$id": "#/properties/owner/properties/social/properties/reddit",
-                            "$ref": "#/$defs/username",
+                            "$ref": "#/$defs/reddit_username",
                             "description": "username only, e.g. 'r/john' or 'u/john'"
                         },
                         "wechat": {
