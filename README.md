@@ -1,5 +1,14 @@
 # casper-account-info-standard
 
+### Table of Contents
+
+- [Introduction](#introduction)
+- [JSON Schema](#json-schema)
+  - [Schema Specification](#schema-specification)
+- [Usage as an Account Owner](#usage-as-an-account-owner)
+  - [How does it work?](#how-does-it-work)
+  - [What do I do?](#what-do-i-do)
+
 ## Introduction
 
 The Casper Account Info Standard provides a JSON schema and a mechanism for Casper Network accounts to
@@ -10,7 +19,7 @@ self identify and provide additional metadata for their owners, their other reso
 The [JSON Schema](schema.json) provided in this project is compatible with
 [JSON schema Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
 and can be validated with compatible schema validators and IDEs. 
-The provide template [account-info.json](account-info.json) implements the schema and can be validated against 
+The provided template [account-info.json](account-info.json) implements the schema and can be validated against 
 it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemavalidator.net/s/OWGua5Rt).
 
 ### Schema Specification
