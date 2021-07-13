@@ -20,7 +20,7 @@ The [JSON Schema](schema.json) provided in this project is compatible with
 [JSON schema Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
 and can be validated with compatible schema validators and IDEs. 
 The provided template [account-info.json](account-info.json) implements the schema and can be validated against 
-it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemavalidator.net/s/OWGua5Rt).
+it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemavalidator.net/s/TYCUEe8S).
 
 ### Schema Specification
 
@@ -38,9 +38,11 @@ it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemava
         - **`terms_of_service_url`**: A link to the Terms of Service applicable to the use of Owner's services, such as network validation and staking.
         - **`privacy_policy_url`**: A link to a Privacy Policy, as may be applicable to personal information provided to the Account Owner.
         - **`other`** *(array)*: Links to other relevant resources.
-            - **Items** *(string)*: Additional URLs
+            - **Items** *(object)*: Additional URL based resources
+                - **`name`** *(string)*: The name of the resource, e.g. "About Us" or "Careers"
+                - **`url`** *(string)*: The URL to the resource
     - **`associated_accounts`** *(array)*: A list of additional accounts owned by the same owner. Declaring additional accounts provides transparency with respect to Exchange-owned wallets, or self-staked funds belonging to Validators. In order for an associated account o be considered valid, it needs to register the same base URL with the Casper Account Info Standard contract as the Owner.
-        - **Items** *object*: 
+        - **Items** *(object)*: 
             - **`public_key`** *string*: the public key (hexedecimal representation) of the associated account
     - **`website`**: A link to the Owner's website.
     - **`email`** *(string)*: E-mail address for the Owner.

@@ -82,6 +82,23 @@
                     "$ref": "#/$defs/casper_public_key"
                 }
             }
+        },
+        "url_based_resource": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "name",
+                "url"
+            ],
+            "properties" : {
+                "name": {
+                    "type": "string",
+                    "maxLength": 60
+                },
+                "url": {
+                    "$ref": "#/$defs/required_url"
+                }
+            }
         }
     },
     "required": [
@@ -183,7 +200,7 @@
                             "description": "Links to other relevant resources",
                             "items": {
                                 "$id": "#/properties/owner/properties/resources/properties/other/items",
-                                "$ref": "#/$defs/optional_url"
+                                "$ref": "#/$defs/url_based_resource"
                             }
                         }
                     },
