@@ -93,7 +93,7 @@ Examples to perform these queries will be provided in a separate repository.
 
 * create a file called `account-info.<chainspec-name>.json`, where `<chainspec-name>` represents the network the data file
   is intended for. For example, for Casper Mainnet, create: `account-info.casper.json` whereas for Casper Testnet, create
-  `account-info.casper-test.jspn`. 
+  `account-info.casper-test.json`. 
 * Provide all required and desired details
 * validate your resulting JSON against the `schema.json` file
 * following [IETF RFC 8615](https://datatracker.ietf.org/doc/html/rfc8615) proposal for Well-Known URIs, place your
