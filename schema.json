@@ -206,12 +206,12 @@
                     },
                     "additionalProperties": false
                 },
-                "associated_accounts": {
-                    "$id": "#/properties/owner/properties/associated_accounts",
+                "affiliated_accounts": {
+                    "$id": "#/properties/owner/properties/affiliated_accounts",
                     "type": "array",
                     "description": "A list of additional accounts owned by the same owner. Declaring additional accounts provides transparency with respect to Exchange-owned wallets, or self-staked funds belonging to Validators. In order for an associated account o be considered valid, it needs to register the same base URL with the Casper Account Info Standard contract as the Owner",
                     "items": {
-                        "$id": "#/properties/owner/properties/associated_accounts/items",
+                        "$id": "#/properties/owner/properties/affiliated_accounts/items",
                         "$ref": "#/$defs/casper_account"
                     }
                 },

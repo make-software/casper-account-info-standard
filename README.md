@@ -20,7 +20,7 @@ The [JSON Schema](schema.json) provided in this project is compatible with
 [JSON schema Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
 and can be validated with compatible schema validators and IDEs. 
 The provided template [account-info.json](account-info.json) implements the schema and can be validated against 
-it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemavalidator.net/s/TYCUEe8S).
+it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemavalidator.net/s/ltMuxIEq).
 
 ### Schema Specification
 
@@ -41,7 +41,7 @@ it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemava
             - **Items** *(object)*: Additional URL based resources
                 - **`name`** *(string)*: The name of the resource, e.g. "About Us" or "Careers"
                 - **`url`** *(string)*: The URL to the resource
-    - **`associated_accounts`** *(array)*: A list of additional accounts owned by the same owner. Declaring additional accounts provides transparency with respect to Exchange-owned wallets, or self-staked funds belonging to Validators. In order for an associated account o be considered valid, it needs to register the same base URL with the Casper Account Info Standard contract as the Owner.
+    - **`affiliated_accounts`** *(array)*: A list of additional accounts owned by the same owner. Declaring additional accounts provides transparency with respect to Exchange-owned wallets, or self-staked funds belonging to Validators. In order for an associated account o be considered valid, it needs to register the same base URL with the Casper Account Info Standard contract as the Owner.
         - **Items** *(object)*: 
             - **`public_key`** *string*: the public key (hexedecimal representation) of the associated account
     - **`website`**: A link to the Owner's website.
@@ -100,4 +100,4 @@ Examples to perform these queries will be provided in a separate repository.
 file in the following directory relative to the root of your domain name: `/.well-known/casper/`. In the Casper Mainnet example,
   your file would thus be available at `https://yourdomain.com/.well-known/casper/account-info.casper.json`
 * Follow the instructions here [LINK TO FOLLOW]() to link your Account to your domain name. Perform this step for every
-one of your `associated_accounts` that you declare in your `account-info.json`.
+one of your `affiliated_accounts` that you declare in your `account-info.json`.
