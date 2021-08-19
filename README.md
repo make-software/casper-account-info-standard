@@ -20,7 +20,7 @@ The [JSON Schema](schema.json) provided in this project is compatible with
 [JSON schema Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
 and can be validated with compatible schema validators and IDEs. 
 The provided template [account-info.json](account-info.json) implements the schema and can be validated against 
-it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemavalidator.net/s/TYCUEe8S).
+it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemavalidator.net/s/2tXkGGvK).
 
 ### Schema Specification
 
