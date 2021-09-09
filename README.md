@@ -28,7 +28,7 @@ it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemava
     - **`name`** *(string)*: The name of the entity or person that owns the Account.
     - **`description`** *(string)*: An optional description of the Owner of the Account.
     - **`type`** *(array)*: Indicates the type of entity of the owner. One Owner can have multiple types.
-        - **Items** *(string)*: Must be one of: `['validator', 'exchange', 'dapp', 'individual', 'corporation', 'dao']`.
+        - **Items** *(string)*: Must be one of: `["validator", "exchange", "dapp", "individual", "corporation", "dao"]`.
     - **`identity`** *(object)*: Information about the ownership of the Account.
         - **`ownership_disclosure_url`**: Link to a page outlining entity ownership and/or governance. 
         - **`casper_association_kyc_url`**: Reserved for a link to a Casper Association provided verified identity document, as applicable to Validator members of the Association.
@@ -76,7 +76,7 @@ it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemava
           - **`latitude`** *(number)*: Latitude in decimal degrees
           - **`longitude`** *(number)*: Longitude in decimal degrees         
         - **`functionality`** *(array)*: Reserved to describe the functionality provided by this node.
-            - **Items** *(string)*: Must be one of: `['validator', 'rpc-proxy', 'sse-proxy', 'read-only', 'other']`.
+            - **Items** *(string)*: Must be one of: `["validator", "rpc-proxy", "sse-proxy", "read-only", "other"]`.
 
 ## Usage as an Account Owner
 
