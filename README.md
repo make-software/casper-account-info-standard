@@ -99,5 +99,5 @@ Examples to perform these queries will be provided in a separate repository.
 * following [IETF RFC 8615](https://datatracker.ietf.org/doc/html/rfc8615) proposal for Well-Known URIs, place your
 file in the following directory relative to the root of your domain name: `/.well-known/casper/`. In the Casper Mainnet example,
   your file would thus be available at `https://yourdomain.com/.well-known/casper/account-info.casper.json`
-* Follow the instructions here [LINK TO FOLLOW]() to link your Account to your domain name. Perform this step for every
+* Follow the instructions here [https://github.com/make-software/casper-account-info-contract/wiki](https://github.com/make-software/casper-account-info-contract/wiki) to link your Account to your domain name. Perform this step for every
 one of your `affiliated_accounts` that you declare in your `account-info.json`.
