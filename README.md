@@ -48,8 +48,8 @@ it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemava
     - **`email`** *(string)*: E-mail address for the Owner.
     - **`branding`** *(object)*: Owner Branding.
         - **`logo`** *(object)*: Graphical assets to visually identify the Owner.
-            - **`png_256`**: Link to Owner logo [PNG format, 256x256]. 
-            - **`png_1024`**: Link to Owner logo [PNG format, 1024x1024].
+            - **`png_256`**: Link to Owner logo [PNG format, 256x256]¹. 
+            - **`png_1024`**: Link to Owner logo [PNG format, 1024x1024]¹.
             - **`svg`**: Link to Owner logo [SVG format].
     - **`location`** *(object)*: The location of the Owner of the Account.
         - **`name`** *(string)*: Free-form location in human-readable format [for example: City, State]
@@ -77,6 +77,8 @@ it using online tools such as [JsonSchemaValidator.net](https://www.jsonschemava
           - **`longitude`** *(number)*: Longitude in decimal degrees         
         - **`functionality`** *(array)*: Reserved to describe the functionality provided by this node.
             - **Items** *(string)*: Must be one of: `["validator", "rpc-proxy", "sse-proxy", "read-only", "other"]`.
+
+¹ HTTPS link is required for browsers who do not load unsecured content in secure space (eg. loading an image over HTTP on cspr.live which serves content via HTTPS)
 
 ## Usage as an Account Owner
 
