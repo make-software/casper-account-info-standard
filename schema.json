@@ -144,7 +144,21 @@
                             "dapp",
                             "individual",
                             "corporation",
-                            "dao"
+                            "dao",
+                            "bridge",
+                            "collectible",
+                            "custody",
+                            "defi",
+                            "explorer",
+                            "gaming",
+                            "marketplace",
+                            "nft",
+                            "onramp",
+                            "offramp",
+                            "sdk",
+                            "staking",
+                            "tool",
+                            "wallet"
                         ]
                     }
                 },
